@@ -88,6 +88,17 @@ a {
   box-shadow: inset 0 0 0 1px rgba(254, 211, 76, 0.08);
 }
 
+.status-chip {
+  border: 1px solid rgba(254, 211, 76, 0.34);
+  background:
+    linear-gradient(180deg, rgba(255, 239, 179, 0.22), rgba(254, 211, 76, 0.14)),
+    rgba(254, 211, 76, 0.08);
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.2),
+    inset 0 -2px 0 rgba(0, 0, 0, 0.16),
+    0 8px 18px rgba(0, 0, 0, 0.18);
+}
+
 .ink-card {
   position: relative;
   overflow: hidden;
@@ -172,8 +183,8 @@ a {
 }
 
 .sticker-fire {
-  left: 42px;
-  bottom: 120px;
+  right: 34px;
+  bottom: 240px;
   transform: rotate(-8deg);
   animation: floaty-reverse 6.2s ease-in-out infinite;
 }
@@ -304,6 +315,8 @@ a {
 .hero-note {
   border: 1px solid rgba(254, 211, 76, 0.16);
   background: rgba(255, 248, 222, 0.05);
+  overflow-wrap: anywhere;
+  min-height: 6.5rem;
 }
 
 .marquee {
@@ -337,6 +350,7 @@ a {
 .data-card {
   border: 1px solid rgba(254, 211, 76, 0.16);
   background: rgba(255, 248, 222, 0.05);
+  overflow-wrap: anywhere;
 }
 
 .ca-card {
@@ -396,6 +410,17 @@ a {
 .ca-chip {
   border: 1px solid rgba(254, 211, 76, 0.2);
   background: rgba(255, 248, 222, 0.06);
+  overflow-wrap: anywhere;
+}
+
+.contact-line {
+  overflow-wrap: anywhere;
+  word-break: break-word;
+  display: block;
+  max-width: 100%;
+  width: 100%;
+  white-space: normal;
+  line-height: 1.5;
 }
 
 .grassland {
@@ -971,8 +996,8 @@ a:focus-visible .arrow-link {
   }
 
   .sticker-fire {
-    left: 18px;
-    bottom: 96px;
+    right: 14px;
+    bottom: 214px;
   }
 
   .logo-stage {
