@@ -35,7 +35,13 @@ export default function Home() {
         <div className="mx-auto flex max-w-7xl items-center justify-between gap-4 px-4 py-4 sm:px-6 lg:px-8">
           <div className="flex items-center gap-4">
             <div className="grid h-14 w-14 place-items-center rounded-full border border-[rgba(254,211,76,0.3)] bg-[rgba(254,211,76,0.08)] text-lg font-black text-[var(--gold)]">
-              IV
+              <Image
+                  src="/waterloo-debate-logo.png"
+                  alt="Waterloo Debate logo"
+                  width={100}
+                  height={100}
+                  priority
+                />
             </div>
             <div>
               <p className="font-display text-2xl text-[var(--gold)]">{event.name}</p>
@@ -59,7 +65,6 @@ export default function Home() {
       <main className="mx-auto flex max-w-7xl flex-col gap-8 px-4 py-8 sm:px-6 lg:px-8 lg:py-12">
         <section className="ink-card hero-stage rounded-[2.5rem]">
           <span className="sticker sticker-goose">Goose approved</span>
-          <span className="sticker sticker-fire">Firepit social</span>
           <span className="curlicue one" aria-hidden="true" />
           <span className="curlicue two" aria-hidden="true" />
           <span className="magic-mote m1" aria-hidden="true" />
@@ -193,7 +198,7 @@ export default function Home() {
                     {deadline.note}
                   </p>
                   <div className="mt-auto flex flex-wrap items-end justify-between gap-3 pt-4">
-                    <p className="tiny-note text-[var(--gold)]">{deadline.date}</p>
+                    <p className="note text-[var(--gold)]">{deadline.date}</p>
                     {deadline.href ? (
                       <SafeExternalLink
                         href={deadline.href}
@@ -271,7 +276,7 @@ export default function Home() {
           <Section
             id="schedule"
             eyebrow="Weekend arc"
-            title="Tournament schedule"
+            title="Tournament Schedule"
             description="This is a tentative schedule, but things are unlikely to change. Any dietary restrictions should be submitted in the participant information form."
           >
             <div className="grid gap-4 lg:grid-cols-2">
@@ -338,8 +343,8 @@ export default function Home() {
           <Section
             id="forms"
             eyebrow="Launch pad"
-            title="Forms, forms, forms"
-            description="Any information we need from, or any you want us to have should be submitted via these forms"
+            title="Forms, Forms, Forms"
+            description="Any information we need from, or any you want us to have, should be submitted via these forms"
           >
             <div className="grid gap-4 lg:grid-cols-2">
               {forms.map((form) => (
@@ -350,8 +355,8 @@ export default function Home() {
 
           <Section
             eyebrow="Toolshed"
-            title="Maps, tabs, and useful machinery"
-            description="Have read through this, it&apos;ll make your weekend so much smoother"
+            title="Maps, Tabs, and Useful Machinery"
+            description="Have a read through this, it&apos;ll make your weekend so much smoother"
           >
             <div className="grid gap-4 lg:grid-cols-2">
               {resources.map((resource) => (
@@ -364,7 +369,7 @@ export default function Home() {
         <section className="grid gap-4 lg:grid-cols-[1.2fr_0.8fr]">
           <Section
             eyebrow="House rules"
-            title="Policies and expectations"
+            title="Policies and Expectations"
             description="Tech, Equity, and Opt-Out policies will be released once confirmed by their organisers"
           >
             <div className="grid gap-4">
@@ -376,7 +381,7 @@ export default function Home() {
 
           <Section
             eyebrow="Campfire social"
-            title="This&apos;ll be a social for the books"
+            title="This&apos;ll Be a Social For the Books"
             description="In the mean time, check out what our club has been up to on our socials"
           >
             <div className="grid gap-4">
@@ -434,7 +439,7 @@ export default function Home() {
           <Section
             id="contacts"
             eyebrow="Humans"
-            title="Organizers, contacts, and the people behind the curtain"
+            title="Organizers, Contacts, and the People Behind the Curtain"
             description="More information will be provided closer to the tournament"
           >
             <div className="grid gap-4 xl:grid-cols-3">

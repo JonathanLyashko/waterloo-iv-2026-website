@@ -91,9 +91,9 @@ export const tournamentContent: TournamentContent = {
     name: "Waterloo IV 2026",
     subtitle:
       "A centralized tournament package for debaters, judges, and guests.",
-    dates: "[INSERT TOURNAMENT DATES HERE]",
-    city: "[INSERT HOST CITY HERE]",
-    venue: "[INSERT VENUE NAME HERE]",
+    dates: "May 23 - 24",
+    city: "Waterloo, Ontario",
+    venue: "University of Waterloo",
     overview:
       "This page is the final tournament package for Waterloo IV 2026. Scroll through for logistics, deadlines, policies, and resource links for this year's tournament.",
     callouts: [
@@ -170,7 +170,7 @@ export const tournamentContent: TournamentContent = {
   ],
   chiefAdjudicators: [
     {
-      name: "Rhys Nickerson",
+      name: "SECRET",
       title: "Chief Adjudicator",
       pronouns: "PRONOUNS",
       archetype: "FIRE",
@@ -188,11 +188,11 @@ export const tournamentContent: TournamentContent = {
       imageAlt: "[INSERT CA NAME HERE] headshot placeholder",
     },
     {
-      name: "Caitlin Mah",
+      name: "UNKNOWN",
       title: "Chief Adjudicator",
       pronouns: "PRONOUNS",
       archetype: "WATER",
-      bio: "[INSERT A SHORT CA BIO HERE: FOCUS ON WHAT MAKES THIS PERSON CREDIBLE, EXPERIENCED, OR PARTICULARLY APPEALING TO JUDGES AND COMPETITORS.]",
+      bio: "Another real CUSID GOAT",
       specialties: [
         "[INSERT SPECIALTY HERE]",
         "[INSERT SPECIALTY HERE]",
@@ -206,11 +206,11 @@ export const tournamentContent: TournamentContent = {
       imageAlt: "[INSERT CA NAME HERE] headshot placeholder",
     },
     {
-      name: "Guo Chen",
+      name: "HIDDEN",
       title: "Chief Adjudicator",
       pronouns: "PRONOUNS",
       archetype: "AIR",
-      bio: "[INSERT A SHORT CA BIO HERE: INCLUDE THE DEBATE COMMUNITIES THEY'RE KNOWN IN, THEIR ADJ CORE STRENGTHS, AND WHAT ENERGY THEY BRING TO THE TOURNAMENT.]",
+      bio: "One more real CUSID GOAT",
       specialties: [
         "[INSERT SPECIALTY HERE]",
         "[INSERT SPECIALTY HERE]",
@@ -329,6 +329,18 @@ export const tournamentContent: TournamentContent = {
   ],
   forms: [
     {
+      label: "Institutional Registration",
+      description: "For institutions registering their teams",
+      href: "https://forms.gle/Si899bp2A7XmkSDm7",
+      status: "OPEN",
+    },
+    {
+      label: "Independent Registration",
+      description: "For pairs of debaters not registering under an institution",
+      href: "https://forms.gle/PZF1CtbjiixHXJAY8",
+      status: "OPEN",
+    },
+    {
       label: "Tab Correction / Change",
       description: "For any changes you would like made on the tab, let us know here",
       href: "",
@@ -345,18 +357,6 @@ export const tournamentContent: TournamentContent = {
       description: "For all equity related matters",
       href: "",
       status: "UNRELEASED",
-    },
-    {
-      label: "Institutional Registration",
-      description: "For institutions registering their teams",
-      href: "https://forms.gle/Si899bp2A7XmkSDm7",
-      status: "OPEN",
-    },
-    {
-      label: "Independent Registration",
-      description: "For pairs of debaters not registering under an institution",
-      href: "https://forms.gle/PZF1CtbjiixHXJAY8",
-      status: "OPEN",
     },
     {
       label: "Independent Adjudicator Application",
@@ -402,14 +402,12 @@ export const tournamentContent: TournamentContent = {
     mapHref: "https://www.google.com/maps/place/University+of+Waterloo/@43.4723005,-80.5551573,3252m/data=!3m2!1e3!4b1!4m6!3m5!1s0x882bf6ad02edccff:0xdd9df23996268e17!8m2!3d43.4722854!4d-80.5448576!16zL20vMGpwa3c?entry=ttu&g_ep=EgoyMDI2MDMxMS4wIKXMDSoASAFQAw%3D%3D",
     travelNotes: "The University of Waterloo is accessible by GO Transit. There are a number of GO Bus routes that take you directly to the University of Waterloo (routes 25 from Square One, 30 from Bramalea and 17 from Hamilton through Guelph). The GO Bus stop is on campus and a ~10 min walk from the GA (EV3). If you are coming in from Toronto Union Station: Take the GO Train (Kitchener Line) directly to Kitchener GO. Walk to the Central ION Stop (~10 minutes from Kitchener GO) and take the ION North to the University of Waterloo Station. NOTE: The Kitchener Line does not run all the way to Kitchener GO at all times of day and does not run on weekends. If necessary, you will need to take the Kitchener GO to/from Bramalea and then take the 30 to/from the University of Waterloo station.",
     parking: "Parking on campus will be available near the building . Please use university facilities respectfully and follow procedures, including paying any required visitor parking fees.",
-    accommodation: "If you are billeting, please check the billeting allocation email for more overnight parking info or contact your host",
-    food: "[INSERT CATERING / NEARBY FOOD / MEAL POLICY HERE]",
-    accessibility: "[INSERT ACCESSIBILITY DETAILS AND REQUEST PROCESS HERE]",
+    accommodation: "If you are billeting, please check the billeting allocation email for more overnight parking info or contact your host"
   },
   policies: [
     {
       title: "Eligibility",
-      body: "Hybrid teams are allowed to attend! This tournament is not a strict IV! Novice Eligibility: Speakers in their first year of competitive university debate, or who have attended less than three tournaments prior to this one will be eligible for novice status.",
+      body: "Hybrid teams are allowed to attend! This tournament is not a strict IV, dinos are welcome! Novice Eligibility: Speakers in their first year of competitive university debate, or who have attended less than three tournaments prior to this one will be eligible for novice status.",
     },
     {
       title: "Notice of Recording & Photography",
@@ -421,6 +419,7 @@ export const tournamentContent: TournamentContent = {
       label: "Jonathan Lyashko",
       role: "Tournament Director",
       email: "uwdsintervarsities@gmail.com",
+      discord: "jonathanlyashko",
       href: "mailto:uwdsintervarsities@gmail.com",
     },
     {
@@ -440,15 +439,15 @@ export const tournamentContent: TournamentContent = {
       role: "TABS",
     },
     {
-      label: "Rhys Nickerson",
+      label: "Secret",
       role: "Chief Adjudicator",
     },
     {
-      label: "Caitlin Mah",
+      label: "Unknown",
       role: "Chief Adjudicator",
     },
     {
-      label: "Guo Chen",
+      label: "Hidden",
       role: "Chief Adjudicator",
     },
     {
@@ -458,6 +457,9 @@ export const tournamentContent: TournamentContent = {
     {
       label: "Nyx Kucharski",
       role: "Equity Officer",
+      email: "nyxkucharski@gmail.com",
+      discord: " nyxk._.",
+      href: "mailto:nyxkucharski@gmail.com",
     },
     {
       label: "Mohamed Lateef",
