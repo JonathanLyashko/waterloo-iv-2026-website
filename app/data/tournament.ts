@@ -15,7 +15,8 @@ export type ResourceLink = {
 export type Contact = {
   label: string;
   role: string;
-  email: string;
+  email?: string;
+  discord?: string;
   href?: string;
 };
 
@@ -23,11 +24,6 @@ export type SocialLink = {
   platform: string;
   href: string;
   handle?: string;
-};
-
-export type FAQItem = {
-  question: string;
-  answer: string;
 };
 
 export type DetailCard = {
@@ -88,7 +84,6 @@ export type TournamentContent = {
   policies: DetailCard[];
   contacts: Contact[];
   socials: SocialLink[];
-  faq: FAQItem[];
 };
 
 export const tournamentContent: TournamentContent = {
@@ -146,12 +141,12 @@ export const tournamentContent: TournamentContent = {
     },
     {
       label: "Discord",
-      description: "All announcements, draws, motions, and day-of questions will happen here [NOT RELEASED YET]",
+      description: "All announcements, draws, motions, and day-of questions will happen here [UNRELEASED]",
       href: "",
     },
     {
       label: "Tabbycat",
-      description: "This is the link for the full tournament tab [NOT RELEASE YET]",
+      description: "This is the link for the full tournament tab [UNRELEASED]",
       href: "",
     },
   ],
@@ -415,6 +410,10 @@ export const tournamentContent: TournamentContent = {
     {
       title: "Eligibility",
       body: "Hybrid teams are allowed to attend! This tournament is not a strict IV! Novice Eligibility: Speakers in their first year of competitive university debate, or who have attended less than three tournaments prior to this one will be eligible for novice status.",
+    },
+    {
+      title: "Notice of Recording & Photography",
+      body: "By attending this event, you consent to being photographed or recorded for promotional purposes/educational purposes and/or personal use of attendees. If you have concerns regarding being recorded/photographed, please contact the TD team (we'd love to have nice photos of you though😊).",
     }
   ],
   contacts: [
@@ -439,50 +438,34 @@ export const tournamentContent: TournamentContent = {
     {
       label: "Gin Nguyen",
       role: "TABS",
-      email: "",
-      href: "mailto:[INSERT EMAIL HERE]",
     },
     {
       label: "Rhys Nickerson",
       role: "Chief Adjudicator",
-      email: "",
-      href: "mailto:[INSERT EMAIL HERE]",
     },
     {
       label: "Caitlin Mah",
       role: "Chief Adjudicator",
-      email: "",
-      href: "mailto:[INSERT EMAIL HERE]",
     },
     {
       label: "Guo Chen",
       role: "Chief Adjudicator",
-      email: "",
-      href: "mailto:[INSERT EMAIL HERE]",
     },
     {
       label: "Applications Open",
       role: "Deputy Chief Adjudicator",
-      email: "",
-      href: "mailto:[INSERT EMAIL HERE]",
+    },
+    {
+      label: "Nyx Kucharski",
+      role: "Equity Officer",
     },
     {
       label: "Mohamed Lateef",
       role: "Equity Officer",
-      email: "",
-      href: "mailto:[INSERT EMAIL HERE]",
-    },
-    {
-      label: "To be Announced",
-      role: "Equity Officer",
-      email: "",
-      href: "mailto:[INSERT EMAIL HERE]",
     },
     {
       label: "To be Decided",
       role: "Equity Officer",
-      email: "",
-      href: "mailto:[INSERT EMAIL HERE]",
     },
   ],
   socials: [
@@ -500,23 +483,6 @@ export const tournamentContent: TournamentContent = {
       platform: "YouTube",
       handle: "uwdebate",
       href: "https://www.youtube.com/@uwdebate",
-    },
-  ],
-  faq: [
-    {
-      question: "Where should final tournament-specific policies go?",
-      answer:
-        "Use this FAQ for short high-frequency questions and keep longer operational rules in the policies section above so attendees can find both summary answers and fuller guidance.",
-    },
-    {
-      question: "What information from last year's package should definitely be preserved?",
-      answer:
-        "At minimum keep room for the invitation link, map, tab page, scratch resources, weekend schedule, venue logistics, contacts, and any judge or entry obligations that were published last year.",
-    },
-    {
-      question: "What should be replaced before launch?",
-      answer:
-        "Every bracketed placeholder should be replaced with confirmed 2026 details, especially dates, organizer names, venue wording, payment instructions, and live form links.",
     },
   ],
 };

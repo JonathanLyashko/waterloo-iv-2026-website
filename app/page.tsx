@@ -17,7 +17,6 @@ export default function Home() {
     policies,
     contacts,
     socials,
-    faq,
   } = tournamentContent;
 
   const sections = [
@@ -28,7 +27,6 @@ export default function Home() {
     { id: "forms", label: "Forms" },
     { id: "location", label: "Logistics" },
     { id: "contacts", label: "Social" },
-    { id: "faq", label: "FAQ" },
   ];
 
   return (
@@ -86,7 +84,7 @@ export default function Home() {
 
               <div className="space-y-5">
                 <p className="tiny-note text-[var(--grass)]">
-                  Isn't this better than a Google Doc?
+                  Isn&apos;t this better than a Google Doc?
                 </p>
                 <h1 className="section-title font-display text-6xl leading-[0.92] text-[var(--gold)] sm:text-7xl lg:text-[5.8rem]">
                   Your excuse to touch grass this summer
@@ -114,14 +112,9 @@ export default function Home() {
                 </a>
               </div>
 
-              <div className="grid gap-3 sm:grid-cols-3">
+              <div className="grid gap-3 md:grid-cols-3">
                 {heroNotes.map((note) => (
-                  <div
-                    key={note}
-                    className="hero-note rounded-[1.4rem] px-4 py-4 text-sm leading-7 text-[var(--muted)]"
-                  >
-                    {note}
-                  </div>
+                  <HeroStatusNote key={note} note={note} />
                 ))}
               </div>
             </div>
@@ -179,43 +172,39 @@ export default function Home() {
           </div>
         </section>
 
-        <section className="grid gap-4 lg:grid-cols-[1.08fr_0.92fr]">
+        <section className="grid gap-4 lg:grid-cols-[1.2fr_0.8fr]">
           <Section
             id="deadlines"
             eyebrow="Clock tower"
             title="Important dates"
             description="These are hard deadlines. If you have any questions or concerns, reach out to the TD team!"
           >
-            <div className="grid gap-4">
+            <div className="grid gap-4 lg:grid-cols-2">
               {deadlines.map((deadline) => (
                 <article
                   key={deadline.label}
-                  className="data-card rounded-[1.6rem] px-5 py-5"
+                  className="data-card flex h-full flex-col rounded-[1.6rem] px-5 py-5"
                 >
-                  <div className="flex flex-col gap-3 sm:flex-row sm:items-start sm:justify-between">
-                    <div>
-                      <p className="tiny-note text-[var(--grass)]">Deadline</p>
-                      <h3 className="mt-2 text-2xl font-semibold text-[var(--gold-soft)]">
-                        {deadline.label}
-                      </h3>
-                      <p className="mt-2 text-sm leading-7 text-[var(--muted)]">
-                        {deadline.note}
-                      </p>
-                    </div>
-                    <div className="sm:max-w-[16rem] sm:text-right">
-                      <p className="tiny-note text-[var(--gold)]">{deadline.date}</p>
-                      {deadline.href ? (
-                        <SafeExternalLink
-                          href={deadline.href}
-                          className="mt-3 inline-flex text-sm font-bold text-[var(--gold)]"
-                        >
-                          Open link
-                          <span aria-hidden="true" className="arrow-link">
-                            &rarr;
-                          </span>
-                        </SafeExternalLink>
-                      ) : null}
-                    </div>
+                  <p className="tiny-note text-[var(--grass)]">Deadline</p>
+                  <h3 className="mt-2 text-2xl font-semibold text-[var(--gold-soft)]">
+                    {deadline.label}
+                  </h3>
+                  <p className="mt-2 text-sm leading-7 text-[var(--muted)]">
+                    {deadline.note}
+                  </p>
+                  <div className="mt-auto flex flex-wrap items-end justify-between gap-3 pt-4">
+                    <p className="tiny-note text-[var(--gold)]">{deadline.date}</p>
+                    {deadline.href ? (
+                      <SafeExternalLink
+                        href={deadline.href}
+                        className="inline-flex text-sm font-bold text-[var(--gold)]"
+                      >
+                        Open link
+                        <span aria-hidden="true" className="arrow-link">
+                          &rarr;
+                        </span>
+                      </SafeExternalLink>
+                    ) : null}
                   </div>
                 </article>
               ))}
@@ -235,7 +224,7 @@ export default function Home() {
           </Section>
         </section>
 
-        <section className="grid gap-4 lg:grid-cols-[1.04fr_0.96fr]">
+        <section className="grid gap-4 lg:grid-cols-[1.1fr_0.9fr]">
           <Section
             id="details"
             eyebrow="Rulebook"
@@ -266,7 +255,7 @@ export default function Home() {
           id="ca-team"
           eyebrow="Boss roster"
           title="Meet the chief adjudicators"
-          description="This is our star studded collection. Read through each CA's battle card to find out more about them."
+          description="This is our star studded collection. Read through each CA&apos;s battle card to find out more about them."
         >
           <div className="grid gap-5 lg:grid-cols-3">
             {chiefAdjudicators.map((profile, index) => (
@@ -278,68 +267,44 @@ export default function Home() {
           </div>
         </Section>
 
-        <Section
-          id="schedule"
-          eyebrow="Weekend arc"
-          title="Tournament schedule"
-          description="This is a tentative schedule, but things are unlikely to change. Any dietary restrictions should be submitted in the participant information form."
-        >
-          <div className="grid gap-4 lg:grid-cols-2">
-            {schedule.map((day) => (
-              <article key={day.day} className="data-card rounded-[1.8rem] px-5 py-5">
-                <p className="tiny-note text-[var(--grass)]">{day.day}</p>
-                <h3 className="mt-3 font-display text-4xl text-[var(--gold)]">
-                  {day.date}
-                </h3>
-                <div className="mt-5 space-y-4">
-                  {day.items.map((item) => (
-                    <div
-                      key={`${day.day}-${item.time}-${item.title}`}
-                      className="rounded-[1.2rem] border border-[rgba(254,211,76,0.12)] bg-[rgba(255,248,222,0.04)] px-4 py-4"
-                    >
-                      <p className="tiny-note text-[var(--gold)]">{item.time}</p>
-                      <h4 className="mt-2 text-lg font-semibold text-[var(--gold-soft)]">
-                        {item.title}
-                      </h4>
-                      <p className="mt-1 text-sm leading-7 text-[var(--muted)]">
-                        {item.note}
-                      </p>
-                    </div>
-                  ))}
-                </div>
-              </article>
-            ))}
-          </div>
-        </Section>
-
-        <section className="grid gap-4 lg:grid-cols-[1.04fr_0.96fr]">
+        <section className="grid gap-4 lg:grid-cols-[1.15fr_0.85fr]">
           <Section
-            id="forms"
-            eyebrow="Launch pad"
-            title="Forms, forms, forms"
-            description="Any information we need from, or any you want us to have should be submitted via these forms"
+            id="schedule"
+            eyebrow="Weekend arc"
+            title="Tournament schedule"
+            description="This is a tentative schedule, but things are unlikely to change. Any dietary restrictions should be submitted in the participant information form."
           >
-            <div className="grid gap-4">
-              {forms.map((form) => (
-                <LinkCard key={form.label} item={form} />
+            <div className="grid gap-4 lg:grid-cols-2">
+              {schedule.map((day) => (
+                <article
+                  key={day.day}
+                  className="data-card flex h-full flex-col rounded-[1.8rem] px-5 py-5"
+                >
+                  <p className="tiny-note text-[var(--grass)]">{day.day}</p>
+                  <h3 className="mt-3 font-display text-4xl text-[var(--gold)]">
+                    {day.date}
+                  </h3>
+                  <div className="mt-5 space-y-4">
+                    {day.items.map((item) => (
+                      <div
+                        key={`${day.day}-${item.time}-${item.title}`}
+                        className="rounded-[1.2rem] border border-[rgba(254,211,76,0.12)] bg-[rgba(255,248,222,0.04)] px-4 py-4"
+                      >
+                        <p className="tiny-note text-[var(--gold)]">{item.time}</p>
+                        <h4 className="mt-2 text-lg font-semibold text-[var(--gold-soft)]">
+                          {item.title}
+                        </h4>
+                        <p className="mt-1 text-sm leading-7 text-[var(--muted)]">
+                          {item.note}
+                        </p>
+                      </div>
+                    ))}
+                  </div>
+                </article>
               ))}
             </div>
           </Section>
 
-          <Section
-            eyebrow="Toolshed"
-            title="Maps, tabs, and useful machinery"
-            description="Have read through this, it'll make your weekend so much smoother"
-          >
-            <div className="grid gap-4">
-              {resources.map((resource) => (
-                <LinkCard key={resource.label} item={resource} />
-              ))}
-            </div>
-          </Section>
-        </section>
-
-        <section className="grid gap-4 lg:grid-cols-[1fr_1fr]">
           <Section
             id="location"
             eyebrow="Field guide"
@@ -348,12 +313,15 @@ export default function Home() {
           >
             <div className="grid gap-4">
               <DetailRow label="Address" value={location.address} />
-              <DetailRow label="Travel notes" value={location.travelNotes} />
+              <DetailRow label="Travel notes" value={location.travelNotes} bulletize />
               {location.parking ? <DetailRow label="Parking" value={location.parking} /> : null}
               {location.accommodation ? (
                 <DetailRow label="Billeting" value={location.accommodation} />
               ) : null}
               {location.food ? <DetailRow label="Food" value={location.food} /> : null}
+              {location.accessibility ? (
+                <DetailRow label="Accessibility" value={location.accessibility} />
+              ) : null}
               {location.mapHref ? (
                 <SafeExternalLink
                   href={location.mapHref}
@@ -364,7 +332,36 @@ export default function Home() {
               ) : null}
             </div>
           </Section>
+        </section>
 
+        <section className="grid gap-4 lg:grid-cols-[1.08fr_0.92fr]">
+          <Section
+            id="forms"
+            eyebrow="Launch pad"
+            title="Forms, forms, forms"
+            description="Any information we need from, or any you want us to have should be submitted via these forms"
+          >
+            <div className="grid gap-4 lg:grid-cols-2">
+              {forms.map((form) => (
+                <LinkCard key={form.label} item={form} />
+              ))}
+            </div>
+          </Section>
+
+          <Section
+            eyebrow="Toolshed"
+            title="Maps, tabs, and useful machinery"
+            description="Have read through this, it&apos;ll make your weekend so much smoother"
+          >
+            <div className="grid gap-4 lg:grid-cols-2">
+              {resources.map((resource) => (
+                <LinkCard key={resource.label} item={resource} />
+              ))}
+            </div>
+          </Section>
+        </section>
+
+        <section className="grid gap-4 lg:grid-cols-[1.2fr_0.8fr]">
           <Section
             eyebrow="House rules"
             title="Policies and expectations"
@@ -376,42 +373,13 @@ export default function Home() {
               ))}
             </div>
           </Section>
-        </section>
-
-        <section className="grid gap-4 lg:grid-cols-[0.96fr_1.04fr]">
-          <Section
-            id="contacts"
-            eyebrow="Humans"
-            title="Organizers, contacts, and the people behind the curtain"
-            description="More information will be provided closer to the tournament"
-          >
-            <div className="grid gap-4">
-              {contacts.map((contact) => (
-                <article
-                  key={`${contact.label}-${contact.email}`}
-                  className="data-card rounded-[1.6rem] px-5 py-5"
-                >
-                  <p className="tiny-note text-[var(--grass)]">{contact.role}</p>
-                  <h3 className="mt-2 text-2xl font-semibold text-[var(--gold-soft)]">
-                    {contact.label}
-                  </h3>
-                  <a
-                    href={contact.href ?? `mailto:${contact.email}`}
-                    className="mt-3 inline-flex text-base font-bold text-[var(--gold)]"
-                  >
-                    {contact.email}
-                  </a>
-                </article>
-              ))}
-            </div>
-          </Section>
 
           <Section
             eyebrow="Campfire social"
-            title="This'll be a social for the books"
+            title="This&apos;ll be a social for the books"
             description="In the mean time, check out what our club has been up to on our socials"
           >
-            <div className="grid gap-4 lg:grid-cols-[0.9fr_1.1fr]">
+            <div className="grid gap-4">
               <div className="grassland rounded-[2rem]">
                 <div className="swirl s1" />
                 <div className="swirl s2" />
@@ -443,13 +411,13 @@ export default function Home() {
                   <SafeExternalLink
                     key={social.platform}
                     href={social.href}
-                    className="data-card rounded-[1.6rem] px-5 py-5 transition hover:-translate-y-0.5 hover:border-[rgba(254,211,76,0.34)]"
+                    className="data-card flex h-full flex-col rounded-[1.6rem] px-5 py-5 transition hover:-translate-y-0.5 hover:border-[rgba(254,211,76,0.34)]"
                   >
                     <p className="tiny-note text-[var(--grass)]">{social.platform}</p>
                     <h3 className="mt-2 text-2xl font-semibold text-[var(--gold-soft)]">
                       {social.handle ?? social.platform}
                     </h3>
-                    <span className="mt-3 inline-flex items-center gap-2 text-sm font-bold text-[var(--gold)]">
+                    <span className="mt-auto inline-flex items-center gap-2 pt-3 text-sm font-bold text-[var(--gold)]">
                       Jump in
                       <span aria-hidden="true" className="arrow-link">
                         &rarr;
@@ -462,18 +430,43 @@ export default function Home() {
           </Section>
         </section>
 
-        <Section
-          id="faq"
-          eyebrow="Little answers"
-          title="FAQ, but still pretty"
-          description="Short answers for common questions, without flattening the whole page into a generic event template."
-        >
-          <div className="grid gap-4">
-            {faq.map((item) => (
-              <FAQItem key={item.question} item={item} />
-            ))}
-          </div>
-        </Section>
+        <section className="grid gap-4">
+          <Section
+            id="contacts"
+            eyebrow="Humans"
+            title="Organizers, contacts, and the people behind the curtain"
+            description="More information will be provided closer to the tournament"
+          >
+            <div className="grid gap-4 xl:grid-cols-3">
+              {contacts.map((contact, index) => (
+                <article
+                  key={`${contact.label}-${contact.role}-${index}`}
+                  className="data-card flex flex-col gap-3 rounded-[1.6rem] px-5 py-4"
+                >
+                  <p className="tiny-note text-[var(--grass)]">{contact.role}</p>
+                  <h3 className="mt-2 text-2xl font-semibold text-[var(--gold-soft)]">
+                    {contact.label}
+                  </h3>
+                  <div className="space-y-2 pt-1">
+                    {contact.email ? (
+                      <a
+                        href={contact.href ?? `mailto:${contact.email}`}
+                        className="contact-line text-sm font-bold leading-6 text-[var(--gold)]"
+                      >
+                        {contact.email}
+                      </a>
+                    ) : null}
+                    {contact.discord ? (
+                      <p className="contact-line text-sm font-semibold text-[var(--muted)]">
+                        Discord: {contact.discord}
+                      </p>
+                    ) : null}
+                  </div>
+                </article>
+              ))}
+            </div>
+          </Section>
+        </section>
       </main>
     </div>
   );
@@ -505,6 +498,30 @@ function Section({ children, title, description, eyebrow, id }: SectionProps) {
   );
 }
 
+function HeroStatusNote({ note }: { note: string }) {
+  const separatorIndex = note.indexOf(":");
+
+  if (separatorIndex === -1) {
+    return (
+      <div className="hero-note flex h-full items-center rounded-[1.4rem] px-4 py-4 text-sm leading-7 text-[var(--muted)]">
+        {note}
+      </div>
+    );
+  }
+
+  const label = note.slice(0, separatorIndex + 1).trim();
+  const value = note.slice(separatorIndex + 1).trim();
+
+  return (
+    <div className="hero-note flex h-full min-w-0 flex-col justify-between rounded-[1.4rem] px-4 py-4 text-sm leading-7 text-[var(--muted)]">
+      <span className="pr-2 text-base leading-7">{label}</span>
+      <span className="status-chip mt-3 inline-flex w-fit rounded-full px-3 py-1 text-xs font-black uppercase tracking-[0.14em] text-[var(--gold-soft)]">
+        {value}
+      </span>
+    </div>
+  );
+}
+
 function LinkCard({
   item,
 }: {
@@ -513,23 +530,25 @@ function LinkCard({
   return (
     <SafeExternalLink
       href={item.href}
-      className="data-card rounded-[1.6rem] px-5 py-5 transition hover:-translate-y-0.5 hover:border-[rgba(254,211,76,0.34)]"
+      className="data-card flex h-full flex-col rounded-[1.6rem] px-5 py-5 transition hover:-translate-y-0.5 hover:border-[rgba(254,211,76,0.34)]"
     >
-      <div className="flex items-start justify-between gap-4">
-        <div>
+      <div className="flex min-h-0 flex-1 flex-col gap-4">
+        <div className="flex min-h-0 items-start justify-between gap-4">
           <p className="tiny-note text-[var(--grass)]">Link</p>
-          <h3 className="mt-2 text-2xl font-semibold text-[var(--gold-soft)]">
+          {item.status ? (
+            <span className="badge-chip shrink-0 rounded-full px-3 py-1 text-xs font-extrabold uppercase tracking-[0.16em] text-[var(--gold)]">
+              {item.status}
+            </span>
+          ) : null}
+        </div>
+        <div className="min-w-0 flex-1">
+          <h3 className="text-2xl font-semibold text-[var(--gold-soft)]">
             {item.label}
           </h3>
-          <p className="mt-2 text-sm leading-7 text-[var(--muted)]">{item.description}</p>
+          <p className="mt-3 text-sm leading-7 text-[var(--muted)]">{item.description}</p>
         </div>
-        {item.status ? (
-          <span className="badge-chip rounded-full px-3 py-1 text-xs font-extrabold uppercase tracking-[0.16em] text-[var(--gold)]">
-            {item.status}
-          </span>
-        ) : null}
       </div>
-      <span className="mt-4 inline-flex items-center gap-2 text-sm font-bold text-[var(--gold)]">
+      <span className="mt-auto inline-flex items-center gap-2 pt-4 text-sm font-bold text-[var(--gold)]">
         Open
         <span aria-hidden="true" className="arrow-link">
           &rarr;
@@ -545,7 +564,7 @@ function DetailCard({
   item: { title: string; body: string };
 }) {
   return (
-    <article className="data-card rounded-[1.6rem] px-5 py-5">
+    <article className="data-card flex h-full flex-col rounded-[1.6rem] px-5 py-5">
       <p className="tiny-note text-[var(--grass)]">Info</p>
       <h3 className="mt-2 text-2xl font-semibold text-[var(--gold-soft)]">
         {item.title}
@@ -555,28 +574,38 @@ function DetailCard({
   );
 }
 
-function DetailRow({ label, value }: { label: string; value: string }) {
+function DetailRow({
+  label,
+  value,
+  bulletize,
+}: {
+  label: string;
+  value: string;
+  bulletize?: boolean;
+}) {
+  const items = bulletize
+    ? value
+        .split(/(?<=[.?!])\s+(?=[A-Z])/)
+        .map((item) => item.trim())
+        .filter(Boolean)
+    : [];
+
   return (
     <div className="data-card rounded-[1.6rem] px-5 py-5">
       <p className="tiny-note text-[var(--grass)]">{label}</p>
-      <p className="mt-2 text-base leading-8 text-[var(--muted)]">{value}</p>
+      {bulletize ? (
+        <ul className="mt-3 space-y-3 text-base leading-8 text-[var(--muted)]">
+          {items.map((item, index) => (
+            <li key={`${label}-${index}`} className="flex gap-3">
+              <span className="pt-1 text-[var(--gold)]">•</span>
+              <span>{item}</span>
+            </li>
+          ))}
+        </ul>
+      ) : (
+        <p className="mt-2 text-base leading-8 text-[var(--muted)]">{value}</p>
+      )}
     </div>
-  );
-}
-
-function FAQItem({
-  item,
-}: {
-  item: { question: string; answer: string };
-}) {
-  return (
-    <article className="data-card rounded-[1.6rem] px-5 py-5">
-      <p className="tiny-note text-[var(--grass)]">FAQ</p>
-      <h3 className="mt-2 text-2xl font-semibold text-[var(--gold-soft)]">
-        {item.question}
-      </h3>
-      <p className="mt-3 text-base leading-8 text-[var(--muted)]">{item.answer}</p>
-    </article>
   );
 }
 
@@ -596,11 +625,11 @@ function CAProfileCard({
   };
 }) {
   return (
-    <article className="ca-card rounded-[1.8rem] p-4">
-      <div className="ca-foil rounded-[1.5rem] p-2">
-        <div className="ca-portrait rounded-[1.3rem] px-4 pb-4 pt-5">
+    <article className="ca-card h-full rounded-[1.8rem] p-4">
+      <div className="ca-foil h-full rounded-[1.5rem] p-2">
+        <div className="ca-portrait flex h-full flex-col rounded-[1.3rem] px-4 pb-4 pt-5">
           <div className="mb-4 flex items-start justify-between gap-3">
-            <div>
+            <div className="min-w-0 flex-1">
               <p className="tiny-note text-[var(--grass)]">{profile.title}</p>
               <h3 className="mt-2 font-display text-3xl leading-tight text-[var(--gold)]">
                 {profile.name}
@@ -626,7 +655,7 @@ function CAProfileCard({
             </div>
           </div>
 
-          <div className="space-y-4">
+          <div className="flex flex-1 flex-col space-y-4">
             {profile.pronouns ? (
               <p className="tiny-note text-[var(--muted)]">{profile.pronouns}</p>
             ) : null}
@@ -672,8 +701,16 @@ function SafeExternalLink({
   className?: string;
   children: React.ReactNode;
 }) {
+  const hasHref = href.trim().length > 0;
+
   return (
-    <a href={href} target="_blank" rel="noreferrer noopener" className={className}>
+    <a
+      href={hasHref ? href : undefined}
+      target={hasHref ? "_blank" : undefined}
+      rel={hasHref ? "noreferrer noopener" : undefined}
+      aria-disabled={hasHref ? undefined : true}
+      className={className}
+    >
       {children}
     </a>
   );
